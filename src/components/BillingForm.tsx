@@ -18,6 +18,7 @@ import { format } from "date-fns";
 interface BillingFormProps {
   subscriptionPlan: Awaited<ReturnType<typeof getUserSubscriptionPlan>>;
 }
+
 const BillingForm = ({ subscriptionPlan }: BillingFormProps) => {
   const { toast } = useToast();
 
@@ -34,6 +35,7 @@ const BillingForm = ({ subscriptionPlan }: BillingFormProps) => {
         }
       },
     });
+
   return (
     <MaxWidthWrapper className="max-w-5xl">
       <form
@@ -66,7 +68,7 @@ const BillingForm = ({ subscriptionPlan }: BillingFormProps) => {
               <p className="rounded-full text-xs font-medium">
                 {subscriptionPlan.isCanceled
                   ? "Your plan will be canceled on "
-                  : "Your plan renews on "}
+                  : "Your plan renews on"}
                 {format(subscriptionPlan.stripeCurrentPeriodEnd!, "dd.MM.yyyy")}
                 .
               </p>
