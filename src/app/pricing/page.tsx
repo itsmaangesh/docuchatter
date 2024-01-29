@@ -20,7 +20,7 @@ const Page = () => {
   const pricingItems = [
     {
       plan: "Free",
-      tagline: "For small side projects.",
+      tagline: "Build side projects.",
       quota: 10,
       features: [
         {
@@ -47,7 +47,7 @@ const Page = () => {
     },
     {
       plan: "Pro",
-      tagline: "For larger projects with higher needs.",
+      tagline: "Go big with higher needs.",
       quota: PLANS.find((p) => p.slug === "pro")!.quota,
       features: [
         {
@@ -78,8 +78,7 @@ const Page = () => {
         <div className="mx-auto mb-10 sm:max-w-lg">
           <h1 className="text-6xl font-bold sm:text-7xl">Pricing</h1>
           <p className="mt-5 text-gray-600 sm:text-lg">
-            Whether you&apos;re just trying out our service or need more,
-            we&apos;ve got you covered.
+            We have got you covererd
           </p>
         </div>
 
