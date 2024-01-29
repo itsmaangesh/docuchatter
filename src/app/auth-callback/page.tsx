@@ -1,14 +1,24 @@
 "use client";
 
 import { useRouter, useSearchParams } from "next/navigation";
+import { useEffect, useState } from "react";
 import { trpc } from "../_trpc/client";
 import { Loader2 } from "lucide-react";
 
 const Page = () => {
   const router = useRouter();
+  const [isClient, setIsClient] = useState(false);
 
-  const searchParams = useSearchParams();
-  const origin = searchParams.get("origin");
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  let origin: any;
+  if (isClient) {
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    const searchParams = useSearchParams();
+    origin = searchParams.get("origin");
+  }
 
   trpc.authCallback.useQuery(undefined, {
     onSuccess: ({ success }) => {
